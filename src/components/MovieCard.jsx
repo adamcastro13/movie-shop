@@ -9,6 +9,7 @@ function MovieCard({ pelicula, onAdd }) {
             />
         <h3>{pelicula.Title}</h3>
         <p>{pelicula.Year}</p>
+        <p>Precio: ${pelicula.price}</p>
         <button onClick={onAdd}>Agregar al carrito</button>
         </div>
     );

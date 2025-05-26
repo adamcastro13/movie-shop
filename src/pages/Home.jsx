@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import MovieCard from '../components/MovieCard';
 import './Home.css';
 
-function Home() {
+function Home({ carrito, setCarrito }) {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const API_KEY = '7a39b201';     
+    const API_KEY = '7a39b201';
     const URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=batman`;
 
     useEffect(() => {
@@ -15,12 +15,17 @@ function Home() {
             .then((res) => res.json())
             .then((data) => {
                 if (data.Response === 'True') {
-                    setMovies(data.Search);
+                    // le agregamos un precio random a cada película
+                    const moviesConPrecio = data.Search.map(movie => ({
+                        ...movie,
+                        price: Math.floor(Math.random() * 10) + 5
+                    }));
+                    setMovies(moviesConPrecio);
                     setError(null);
                 } else {
                     setError(data.Error);
                 }
-            setLoading(false);
+                setLoading(false);
             })
             .catch((err) => {
                 setError('Error al cargar los datos');
@@ -29,9 +34,7 @@ function Home() {
     }, []);
 
     const agregarAlCarrito = (pelicula) => {
-        const carritoActual = JSON.parse(localStorage.getItem('carrito')) || [];
-        const actualizado = [...carritoActual, pelicula];
-        localStorage.setItem('carrito', JSON.stringify(actualizado));
+        setCarrito([...carrito, pelicula]);
     };
 
     return (
@@ -54,3 +57,4 @@ function Home() {
 }
 
 export default Home;
+

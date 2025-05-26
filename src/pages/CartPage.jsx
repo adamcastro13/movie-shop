@@ -1,15 +1,13 @@
 import Cart from '../components/Cart';
 import './CartPage.css';
 
-function CartPage() {
-    const carritoGuardado = JSON.parse(localStorage.getItem('carrito')) || [];
-
-    return (
-        <div className="cart-page">
-            <h1>Mi Carrito</h1>
-            <Cart carrito={carritoGuardado} />
-        </div>
-    );
+function CartPage({ carrito, setCarrito }) {
+  return (
+    <div className="cart-page">
+      <h1>Mi Carrito</h1>
+      <Cart carrito={carrito} setCarrito={setCarrito} />
+    </div>
+  );
 }
 
 export default CartPage;

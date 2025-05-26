@@ -1,12 +1,11 @@
 .cart-page {
-    padding: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
+  padding: 20px;
+  background-color: #002366;
+  min-height: 100vh;
 }
 
 .cart-page h1 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-    color: #333;
+  color: #facc15;
+  text-align: center;
+  margin-bottom: 20px;
 }
