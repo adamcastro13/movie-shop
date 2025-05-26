@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #002366;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: #FFD700;
+    font-weight: bold;
+}
+
+nav {
+    background-color: #00194d;
+    padding: 1rem;
+}
+
+nav a {
+    margin-right: 1rem;
+    color: #FFD700;
+}
+
+h1, h2 {
+    color: #FFD700;
+}
